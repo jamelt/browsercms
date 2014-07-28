@@ -260,7 +260,7 @@ TEXT
 
   # For both creating new bcms project and adding bcms to existing rails projects.
   def common_setup(name)
-    gem 'browsercms', :version => ::Cms::VERSION
+    #gem 'browsercms', :version => ::Cms::VERSION
     run_bundle_install
     generate :jdbc if defined?(JRUBY_VERSION)
     generate_browsercms_project
