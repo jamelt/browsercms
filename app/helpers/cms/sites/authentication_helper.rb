@@ -20,6 +20,14 @@ module Cms
       def new_password_path(resource_name)
         main_app.forgot_password_path
       end
+
+      def new_registration_path(resource_name)
+        main_app.register_path
+      end
+
+      def registration_path(resource_name)
+        main_app.cms_register_path
+      end
     end
   end
 end

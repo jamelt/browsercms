@@ -41,6 +41,7 @@ module Cms
 
     def create
       @user = Cms::User.new(cms_user_params)
+      @user.confirmed_at = Time.now
       if @user.save
         flash[:notice] = "User '#{@user.login}' was created"
         redirect_to users_path
