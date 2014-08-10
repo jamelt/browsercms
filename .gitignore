@@ -29,3 +29,4 @@ test/dummy/public/assets/*
 .rvmrc
 .ruby-version
 db/backups
+atlassian-ide-plugin.xml
