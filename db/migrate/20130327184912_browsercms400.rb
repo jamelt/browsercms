@@ -84,10 +84,26 @@ class Browsercms400 < ActiveRecord::Migration
       t.rename :remember_token_expires_at, :remember_created_at
       t.remove :remember_token
       t.remove :crypted_password
+
+      ## Trackable
+      t.integer :sign_in_count, :default => 0
+      t.datetime :current_sign_in_at
+      t.datetime :last_sign_in_at
+      t.string :current_sign_in_ip
+      t.string :last_sign_in_ip
+
+      ## Confirmable
+      t.string :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
+      t.string :unconfirmed_email # Only if using reconfirmable
     end
 
     add_index :cms_users, :email,                :unique => true
     add_index :cms_users, :reset_password_token, :unique => true
+
+    # Make sure all existing users are confirmed.
+    Cms::User.update_all(:confirmed_at => Time.now)
   end
   # In 4.x, all core tables MUST start with cms_. See https://github.com/browsermedia/browsercms/issues/639
   def apply_cms_namespace_to_all_core_tables
