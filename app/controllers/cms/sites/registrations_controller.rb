@@ -20,6 +20,12 @@ module Cms
 
       protected
 
+      def build_resource(hash=nil)
+        user = super
+        user.groups << Group.find_by(code: 'app-user')
+        user
+      end
+
       def configure_permitted_parameters
         devise_parameter_sanitizer.for(:sign_up) << :email
       end
