@@ -22,6 +22,7 @@ group_types(:cms_user).permissions<<permissions(:publish_content)
 create_group(:guest, :name => 'Guest', :code => 'guest', :group_type => group_types(:guest_group_type))
 create_group(:content_admin, :name => 'Cms Administrators', :code => 'cms-admin', :group_type => group_types(:cms_user))
 create_group(:content_editor, :name => 'Content Editors', :code => 'content-editor', :group_type => group_types(:cms_user))
+create_group(:application_user, :name => 'Application Users', :code => 'app-user', :group_type => group_types(:registered_public_user))
 cmsadmin.groups << groups(:content_admin)
 cmsadmin.groups << groups(:content_editor)
 
