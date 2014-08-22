@@ -45,10 +45,10 @@ module Cms::RouteExtensions
                skip: :password,
                path_names: {sign_in: 'login'},
                controllers: { sessions: 'cms/sites/sessions',
-                              registrations: 'cms/sites/registrations'}
+                              registrations: 'cms/sites/registrations' }
 
     devise_scope :cms_user do
-      get '/forgot-password' => 'cms/sites/passwords#new', :as => 'forgot_password'
+      get '/forgot-password' => 'cms/sites/passwords#new', as: 'forgot_password'
       post '/forgot-password' => 'cms/sites/passwords#create', as: 'cms_user_password'
       get '/passwords/:id/edit' => 'cms/sites/passwords#edit', as: 'edit_password'
       put '/forgot-password' => 'cms/sites/passwords#update', as: 'update_password'
