@@ -43,7 +43,7 @@ module Cms::RouteExtensions
                class_name: 'Cms::User',
                path: '',
                skip: :password,
-               path_names: {sign_in: 'login'},
+               path_names: {sign_in: 'login', sign_out: 'logout'},
                controllers: { sessions: 'cms/sites/sessions',
                               registrations: 'cms/sites/registrations' }
 
